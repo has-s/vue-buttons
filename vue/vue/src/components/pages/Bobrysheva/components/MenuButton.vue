@@ -19,25 +19,25 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isOpen: false,
-      menuItems: ['Home', 'Login', 'Register']
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.isOpen = !this.isOpen;
+  export default {
+    data() {
+      return {
+        isOpen: false,
+        menuItems: ['Home', 'Login', 'Register']
+      };
     },
-    closeMenu() {
-      this.isOpen = false;
-    },
-    handleMenuItemClick(item) {
-      console.log('Clicked on', item);
+    methods: {
+      toggleMenu() {
+        this.isOpen = !this.isOpen;
+      },
+      closeMenu() {
+        this.isOpen = false;
+      },
+      handleMenuItemClick(item) {
+        console.log('Clicked on', item);
+      }
     }
-  }
-};
+  };
 </script>
 
 <style lang="less">
