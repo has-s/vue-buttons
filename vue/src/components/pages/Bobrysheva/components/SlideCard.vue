@@ -15,81 +15,80 @@
 </template>
 
 <script>
-export default {
-  props: {
-    card: {
-      type: Object,
-      required: true
+  export default {
+    props: {
+      card: {
+        type: Object,
+        required: true
+      }
     }
-  }
-};
+  };
 </script>
 
 <style>
-.slide-card {
+  .slide-card {
+      width: 160px;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 20px;
+    position: relative;
+    border: 1px solid rgba(185, 185, 185, 0.65);
+  text-align: left;
+  }
+
+
+  .slide-image {
     width: 160px;
-  height: 300px;
-  background-color: #ffffff;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 20px;
-  position: relative;
-  border: 1px solid rgba(185, 185, 185, 0.65);
-text-align: left;
-}
+    height: 200px;
+    object-fit: cover;
+    border-radius: 25px;
+  }
 
+  .card-content {
+    padding: 10px;
+  }
 
-.slide-image {
-  width: 160px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 25px;
-}
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-.card-content {
-  padding: 10px;
-}
+  .card-price b{
+    font-family: Poppins-SeBold;
+  }
 
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+  .card-rating {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: rgba(70, 70, 70, 0.5);
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 25px;
+  }
 
-.card-price b{
-  font-family: Poppins-SeBold;
-}
+  .card-arrow {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+  }
 
-.card-rating {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  padding: 5px 10px;
-  background-color: rgba(70, 70, 70, 0.5);
-  font-size: 14px;
-  color: #ffffff;
-  border-radius: 25px;
-}
-
-.card-arrow {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background-color: #000000;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-}
-
-.cards-container {
-  display: inline-block;
-  margin-right: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+  .cards-container {
+    display: inline-block;
+    margin-right: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 </style>
