@@ -1,16 +1,16 @@
 <template>
   <div class="cards-container">
-  <div class="slide-card">
-    <img :src="card.image" alt="Card Image" class="slide-image">
-    <div class="card-content">
-      <p class="card-title">{{ card.title }}</p>
-      <div class="price">
-        <p class="card-price"><b>${{ card.price }}</b> / week</p>
+    <div class="slide-card">
+      <img :src="card.image" alt="Card Image" class="slide-image">
+      <div class="card-content">
+        <p class="card-title">{{ card.title }}</p>
+        <div class="price">
+          <p class="card-price"><b>${{ card.price }}</b> / week</p>
+        </div>
+        <p class="card-rating"><i class="far fa-star"></i> {{ card.rating }}</p>
       </div>
-      <p class="card-rating"><i class="far fa-star"></i> {{ card.rating }}</p>
+      <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
     </div>
-    <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-  </div>
   </div>
 </template>
 
@@ -25,9 +25,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
 .slide-card {
-    width: 160px;
+  width: 160px;
   height: 300px;
   background-color: #ffffff;
   border-radius: 25px;
@@ -35,9 +35,8 @@ export default {
   margin: 20px;
   position: relative;
   border: 1px solid rgba(185, 185, 185, 0.65);
-text-align: left;
+  text-align: left;
 }
-
 
 .slide-image {
   width: 160px;
@@ -56,8 +55,8 @@ text-align: left;
   margin-bottom: 10px;
 }
 
-.card-price b{
-  font-family: Poppins-SeBold;
+.card-price b {
+  font-family: Cina-SeBold;
 }
 
 .card-rating {
@@ -91,5 +90,4 @@ text-align: left;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 </style>

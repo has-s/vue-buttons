@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less">
 .search-input {
   width: 200px;
   padding: 8px 12px;

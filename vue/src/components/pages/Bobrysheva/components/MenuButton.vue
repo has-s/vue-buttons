@@ -46,12 +46,12 @@ export default {
     border: none;
     cursor: pointer;
     padding: 0;
-  }
 
-  .icon {
-    color: #000000;
-    font-size: 20px;
-    padding: 0 10px;
+    .icon {
+      color: #000000;
+      font-size: 20px;
+      padding: 0 10px;
+    }
   }
 
   .overlay {

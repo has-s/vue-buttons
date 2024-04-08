@@ -5,9 +5,7 @@
     :disabled="disabled"
     @click="click"
   >
-    <slot>
-      Button
-    </slot>
+    <slot>Button</slot>
   </button>
 </template>
 
@@ -29,7 +27,7 @@ export default {
     }
   },
   methods: {
-    click() {
+    handleClick() {
       this.$emit('click');
     }
   }
