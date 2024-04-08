@@ -5,6 +5,8 @@ import Vuex from 'vuex'
 import storeRoot from './store'
 import { sync } from "vuex-router-sync";
 
+import '@fortawesome/fontawesome-free/css/all.css'
+
 Vue.use(Vuex)
 Vue.config.productionTip = false
 
