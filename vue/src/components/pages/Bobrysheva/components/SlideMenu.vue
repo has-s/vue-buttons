@@ -1,121 +1,72 @@
 <template>
   <div class="slide-menu">
-    <div class="slider">
-      <div class="slides" :style="{ transform: `translateX(${translateValue}px)` }">
-        <div v-for="(card, index) in cards" :key="index" class="card">
-          <img :src="card.image" alt="Card Image">
-          <h3>{{ card.title }}</h3>
-          <p>{{ card.description }}</p>
-        </div>
-      </div>
+    <div class="arrow left" @click="scroll(-1)">
+      <i class="fas fa-chevron-left"></i>
     </div>
-    <button class="prev" @click="prevSlide">&#10094;</button>
-    <button class="next" @click="nextSlide">&#10095;</button>
+    <div class="card-container" ref="container">
+      <slide-card v-for="(card, index) in cards" :key="index" :card="card" />
+    </div>
+    <div class="arrow right" @click="scroll(1)">
+      <i class="fas fa-chevron-right"></i>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        cards: [
-          [
-    {
-      image: 'https://i.imgur.com/8YZQEpy.png',
-      title: 'Finland',
-      hashtags: ['Scandinavia', 'Cold', 'Schengen'],
-      readingTime: '8 min'
+import SlideCard from './SlideCard.vue';
+
+export default {
+  components: {
+    SlideCard,
+  },
+  props: {
+    cards: {
+      type: Array,
+      required: true,
     },
-    {
-      image: 'https://i.pinimg.com/564x/d4/2e/a9/d42ea91267309d843b81d98f3f6a3855.jpg',
-      title: 'Japan',
-      hashtags: ['Asia', 'Culture', 'Strange'],
-      readingTime: '7 min'
+    visibleCards: {
+      type: Number,
+      default: 3,
     },
-    {
-      image: 'https://i.pinimg.com/564x/e0/1b/c0/e01bc01b10f88818788af3fc657bef10.jpg',
-      title: 'Italy',
-      hashtags: ['Europe', 'Sea', 'Talkative'],
-      readingTime: '10 min'
+    scrollStep: {
+      type: Number,
+      default: 1,
     },
-    {
-      image: 'https://i.imgur.com/BcHudDK.png',
-      title: 'USA',
-      hashtags: ['America', 'Food', 'Big'],
-      readingTime: '21 min'
+  },
+  methods: {
+    scroll(direction) {
+      const container = this.$refs.container;
+      const scrollStep = direction * this.scrollStep;
+      container.scrollLeft += scrollStep * container.offsetWidth;
     },
-    {
-      image: 'https://i.pinimg.com/564x/d4/42/70/d442704c57aca880894916e506c19d9f.jpg',
-      title: 'German',
-      hashtags: ['Europe', 'Beer', 'Autobahn'],
-      readingTime: '15 min'
-    },
-    {
-      image: 'https://i.imgur.com/EsDvuSX.png',
-      title: 'North Korea',
-      hashtags: ['Asia', 'Sea', 'Help'],
-      readingTime: '2 min'
-    }
-  ]
-        ],
-        currentIndex: 0,
-        slideWidth: 300,
-        translateValue: 0
-      };
-    },
-    methods: {
-      nextSlide() {
-        if (this.currentIndex < this.cards.length - 1) {
-          this.currentIndex++;
-          this.translateValue -= this.slideWidth;
-        }
-      },
-      prevSlide() {
-        if (this.currentIndex > 0) {
-          this.currentIndex--;
-          this.translateValue += this.slideWidth;
-        }
-      }
-    }
-  };
+  },
+};
 </script>
 
 <style lang="less">
   .slide-menu {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .slider {
     display: flex;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
   }
 
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-
-  .card {
-    width: 300px;
-    margin-right: 20px;
-  }
-
-  button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 24px;
+  .arrow {
     cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
   }
 
-  .prev {
-    left: 10px;
+  .card-container {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    scroll-behavior: smooth;
   }
 
-  .next {
-    right: 10px;
+  .card-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
   }
+
 </style>

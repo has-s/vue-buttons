@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   .btn-templ {
     background-color: #ffffff;
     color: #181c16;

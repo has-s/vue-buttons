@@ -37,13 +37,12 @@
         :card="card"
         ></MainCard>
       </div>
-
         <ButtonTemplate :bordered = "true">See all</ButtonTemplate>
+
         <div class="slide-info">
           <h1>Choose your guide...</h1>
-        <div class="cards-container">
-          <SlideCard v-for="(card, index) in slides" :key="index" :card="card" />
-        </div>
+          <SlideMenu :cards="slides" :visible-cards="3" :scroll-step="1" />
+          <ButtonTemplate>Book now</ButtonTemplate>
       </div>
     </div>
 
@@ -87,6 +86,7 @@
       </div>
 
     </footer>
+    <br>
   </div>
 </div>
 </template>
@@ -96,7 +96,7 @@
   import ButtonTemplate from "@/components/pages/Bobrysheva/components/ButtonTemplate.vue";
   import MainCard from "@/components/pages/Bobrysheva/components/MainCard.vue";
   import SearchBar from "@/components/pages/Bobrysheva/components/SearchBar.vue";
-  import SlideCard from "@/components/pages/Bobrysheva/components/SlideCard.vue";
+  import SlideMenu from "@/components/pages/Bobrysheva/components/SlideMenu.vue";
 
   export default {
     components: {
@@ -104,7 +104,7 @@
       MenuButton,
       SearchBar,
       MainCard,
-      SlideCard
+      SlideMenu
     },
     data() {
         return {
@@ -405,6 +405,10 @@
       color: #ffffff;
     }
 
+    .icon {
+      color: #ffffff;
+    }
+
     h1 {
       color: #ffffff;
     }
@@ -563,7 +567,6 @@
     border-radius: 20px;
     margin: 0 20px;
     font-family: "Poppins-ExLight", sans-serif;
-    margin-bottom: 15px;
   }
 
 </style>
