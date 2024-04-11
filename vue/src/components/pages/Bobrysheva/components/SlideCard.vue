@@ -9,7 +9,7 @@
       </div>
       <p class="card-rating"><i class="far fa-star"></i> {{ card.rating }}</p>
     </div>
-    <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+    <div class="card-arrow" @click="redirectToArticle(card.articleLink)"><i class="fa-solid fa-arrow-right"></i></div>
   </div>
   </div>
 </template>
@@ -20,6 +20,11 @@
       card: {
         type: Object,
         required: true
+      }
+    },
+    methods: {
+      redirectToArticle(articleLink) {
+        window.open(articleLink, '_blank');
       }
     }
   };

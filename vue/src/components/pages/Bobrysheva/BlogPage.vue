@@ -28,7 +28,13 @@
 
     <div class="main-info">
       <h1>Meanwhile in...</h1>
+
+    <div class="tools">
       <SearchBar @search="handleSearch"></SearchBar>
+      <ArticleForm @articleCreated="addArticleToCards" />
+    </div>
+
+
 
       <div class="main-cards">
         <MainCard
@@ -97,6 +103,7 @@
   import MainCard from "@/components/pages/Bobrysheva/components/MainCard.vue";
   import SearchBar from "@/components/pages/Bobrysheva/components/SearchBar.vue";
   import SlideMenu from "@/components/pages/Bobrysheva/components/SlideMenu.vue";
+  import ArticleForm from "@/components/pages/Bobrysheva/components/ArticleForm.vue";
 
   export default {
     components: {
@@ -104,7 +111,8 @@
       MenuButton,
       SearchBar,
       MainCard,
-      SlideMenu
+      SlideMenu,
+      ArticleForm
     },
     data() {
         return {
@@ -144,7 +152,8 @@
             image: 'https://i.imgur.com/EsDvuSX.png',
             title: 'North Korea',
             hashtags: ['Asia', 'Sea', 'Help'],
-            readingTime: '2 min'
+            readingTime: '2 min',
+            articleLink: 'https://www.youtube.com/watch?v=FBnAZnfNB6U'
           }
         ],
         slides: [
@@ -238,6 +247,9 @@
       },
       handleSearch(query) {
         this.searchQuery = query;
+      },
+      addArticleToCards(newArticle) {
+        this.cards.push(newArticle); // Добавление новой статьи в массив cards
       }
     }
   };
@@ -347,6 +359,20 @@
     margin: 20px 0;
   }
 
+  .tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tools button {
+    margin-right: 10px;
+  }
+
+  .card-arrow:hover {
+    cursor: pointer;
+  }
+
   .slider {
     position: absolute;
     cursor: pointer;
@@ -398,6 +424,11 @@
     transition: all 0.5s ease;
     background-color: #2f2f2f;
     color: #ffffff;
+
+    .article-form .plus {
+      background-color: #ffffff;
+      color: #000000;
+    }
 
     .center-content button {
       font-size: 15px;
@@ -479,10 +510,14 @@
     }
 
     .search-input {
+      color: #b0b0b0;
       background-color: #212121;
       border: 1px solid rgba(155, 155, 155, 0.5);
     }
 
+    .article-form .modal-content .content{
+        color: #000000;
+    }
   }
 
   body {
