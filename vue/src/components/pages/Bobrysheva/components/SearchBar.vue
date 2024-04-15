@@ -18,14 +18,14 @@
 </script>
 
 <style scoped>
-  .search-input {
-    width: 200px;
-    padding: 8px 12px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    font-size: 14px;
-    outline: none;
-    text-align: center;
-  }
+.search-input {
+  width: 200px;
+  padding: 8px 12px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 14px;
+  outline: none;
+  text-align: center;
+}
 </style>

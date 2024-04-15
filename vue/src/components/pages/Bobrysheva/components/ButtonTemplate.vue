@@ -37,49 +37,48 @@ export default {
 </script>
 
 <style lang="less">
-  .btn-templ {
-    background-color: #ffffff;
-    color: #181c16;
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 20px;
-    padding: 12px 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-family: "Poppins-Medium", sans-serif;
-    font-size: 15px;
-    font-weight: initial;
-    width: 150px;
+.btn-templ {
+  background-color: #ffffff;
+  color: #181c16;
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  padding: 12px 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: "Poppins-Medium", sans-serif;
+  font-size: 15px;
+  font-weight: initial;
+  width: 150px;
 
-    &:active {
-      background-color: #ffffff;
-      color: rgb(26, 30, 24);
-    }
+&:active {
+  background-color: #ffffff;
+  color: rgb(26, 30, 24);
+}
 
-    &:focus {
-      color: rgb(26, 30, 24);
-    }
+&:focus {
+  color: rgb(26, 30, 24);
+}
 
-    &:hover {
-      background-color: rgb(255, 255, 255);
-      color: rgba(26, 30, 24, 0.50);
-      &.bordered{
-        border-color: rgba(26, 30, 24, 0.50);
-      }
-    }
+&:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgba(26, 30, 24, 0.50);
+&.bordered{
+  border-color: rgba(26, 30, 24, 0.50);
+}
+}
 
-    &.pressed {
-      background-color: #ffffff;
-      color: #1a1e18;
-    }
+&.pressed {
+  background-color: #ffffff;
+  color: #1a1e18;
+}
 
-    &.bordered {
-      border-color: #1a1e18;
-    }
+&.bordered {
+  border-color: #1a1e18;
+}
 
-    &:disabled {
-      color: #bbbbbb;
-      cursor: not-allowed;
-    }
-
-  }
+&:disabled {
+  color: #bbbbbb;
+  cursor: not-allowed;
+}
+}
 </style>

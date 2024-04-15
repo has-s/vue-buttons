@@ -44,29 +44,29 @@ export default {
 </script>
 
 <style lang="less">
-  .slide-menu {
-    display: flex;
-    align-items: center;
-    max-width: 960px;
-    margin: 0 auto;
-  }
+.slide-menu {
+  display: flex;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
 
-  .arrow {
-    cursor: pointer;
-    font-size: 24px;
-    margin: 0 10px;
-  }
+.arrow {
+  cursor: pointer;
+  font-size: 24px;
+  margin: 0 10px;
+}
 
-  .card-container {
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-    scroll-behavior: smooth;
-  }
+.card-container {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  scroll-behavior: smooth;
+}
 
-  .card-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
+.card-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
 
 </style>
