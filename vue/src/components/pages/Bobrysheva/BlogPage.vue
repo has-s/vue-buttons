@@ -17,7 +17,7 @@
         <div class="right-menu">
         <i class="fa-regular fa-moon"></i>
         <label class="switch">
-          <input type="checkbox" @change="toggleTheme" :checked="isLightTheme">
+          <input type="checkbox" @change="() => toggleTheme()" :checked="isLightTheme">
           <span class="slider round"></span>
         </label>
         <i class="fa-regular fa-sun"></i>
@@ -30,17 +30,15 @@
       <h1>Meanwhile in...</h1>
 
     <div class="tools">
-      <SearchBar @search="handleSearch"></SearchBar>
-      <ArticleForm @articleCreated="addArticleToCards" />
+      <SearchBar @search="(queue) => handleSearch(queue)"></SearchBar>
+      <ArticleForm @articleCreated="(newArticle) => addArticleToCards(newArticle)" />
     </div>
-
-
 
       <div class="main-cards">
         <MainCard
-        v-for="(card, index) in filteredCards"
-        :key="index"
-        :card="card"
+          v-for="(card, index) in filteredCards"
+          :key="index"
+          :card="card"
         ></MainCard>
       </div>
         <ButtonTemplate :bordered = "true">See all</ButtonTemplate>
@@ -236,8 +234,8 @@
     computed: {
       filteredCards() {
         return this.cards.filter(card =>
-        card.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        card.hashtags.some(hashtag => hashtag.toLowerCase().includes(this.searchQuery.toLowerCase()))
+          card.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          card.hashtags.some(hashtag => hashtag.toLowerCase().includes(this.searchQuery.toLowerCase()))
         );
       }
     },
@@ -249,7 +247,7 @@
         this.searchQuery = query;
       },
       addArticleToCards(newArticle) {
-        this.cards.push(newArticle); // Добавление новой статьи в массив cards
+        this.cards.push(newArticle);
       }
     }
   };

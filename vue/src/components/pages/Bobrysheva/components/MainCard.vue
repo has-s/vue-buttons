@@ -9,7 +9,7 @@
       </div>
       <p class="card-reading-time"><i class="far fa-clock"></i> {{ card.readingTime }}</p>
     </div>
-    <div class="card-arrow" @click="redirectToArticle(card.articleLink)"><i class="fa-solid fa-arrow-right"></i></div>
+    <div class="card-arrow" @click="() => redirectToArticle(card.articleLink)"><i class="fa-solid fa-arrow-right"></i></div>
   </div>
   </div>
 </template>

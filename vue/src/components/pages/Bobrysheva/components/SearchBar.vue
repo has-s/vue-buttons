@@ -1,5 +1,5 @@
 <template>
-  <input type="text" v-model="searchQuery" placeholder="Search..." @input="emitSearchQuery" class="search-input">
+  <input type="text" v-model="searchQuery" placeholder="Search..." @input="() => emitSearchQuery()" class="search-input">
 </template>
 
 <script>

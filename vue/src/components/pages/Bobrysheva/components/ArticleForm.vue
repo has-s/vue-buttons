@@ -4,20 +4,16 @@
 
     <div v-if="showModal" class="modal">
       <div class="modal-content">
-        <span class="close" @click="showModal = false">&times;</span>
+        <span class="close" @click="closeModal">&times;</span>
 
         <div class="content">
-
           <p>Создание статьи</p>
-
           <form @submit.prevent="submitArticle">
-
             <input type="text" id="photo" placeholder="Ссылка на фото" v-model="photo" required>
             <input type="text" id="title" placeholder="Заголовок" v-model="title" required>
             <input type="text" id="hashtags" placeholder="Хештеги (разделите запятыми)" v-model="hashtagsInput">
             <input type="text" id="readingTime" placeholder="Время чтения" v-model="readingTime">
             <input type="text" id="articleLink" placeholder="Ссылка на статью" v-model="articleLink" required>
-
             <button type="submit">Создать</button>
           </form>
         </div>
@@ -38,11 +34,6 @@ export default {
       articleLink: ''
     };
   },
-  computed: {
-    hashtags() {
-      return this.hashtagsInput.split(',').map(tag => tag.trim());
-    }
-  },
   methods: {
     submitArticle() {
       const newArticle = {
@@ -52,9 +43,7 @@ export default {
         readingTime: this.readingTime,
         articleLink: this.articleLink
       };
-
       this.$emit('articleCreated', newArticle);
-
       this.clearForm();
     },
     clearForm() {
@@ -64,7 +53,13 @@ export default {
       this.readingTime = '';
       this.articleLink = '';
       this.showModal = false;
+    },
+    closeModal() {
+      this.clearForm();
     }
+  },
+  mounted() {
+    setTimeout(this.closeModal, 30000);
   }
 };
 </script>

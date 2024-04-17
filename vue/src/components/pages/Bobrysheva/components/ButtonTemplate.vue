@@ -3,7 +3,7 @@
     class="btn-templ"
     :class="{ 'pressed': active, 'bordered': bordered }"
     :disabled="disabled"
-    @click="click"
+    @click="() => click()"
   >
     <slot>
       Button

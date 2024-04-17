@@ -1,12 +1,12 @@
 <template>
   <div class="slide-menu">
-    <div class="arrow left" @click="scroll(-1)">
+    <div class="arrow left" @click="() => scroll(-1)">
       <i class="fas fa-chevron-left"></i>
     </div>
     <div class="card-container" ref="container">
       <slide-card v-for="(card, index) in cards" :key="index" :card="card" />
     </div>
-    <div class="arrow right" @click="scroll(1)">
+    <div class="arrow right" @click="() => scroll(1)">
       <i class="fas fa-chevron-right"></i>
     </div>
   </div>
