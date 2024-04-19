@@ -9,11 +9,9 @@
         <div class="content">
           <p>Создание статьи</p>
           <form @submit.prevent="submitArticle">
-            <input type="text" placeholder="Ссылка на фото" v-model="form.photo" required>
-            <input type="text" placeholder="Заголовок" v-model="form.title" required>
-            <input type="text" placeholder="Хештеги (разделите запятыми)" v-model="form.hashtagsInput">
-            <input type="text" placeholder="Время чтения" v-model="form.readingTime">
-            <input type="text" placeholder="Ссылка на статью" v-model="form.articleLink" required>
+            <div v-for="(field, key) in formFields" :key="key">
+              <input :type="field.type" :placeholder="field.placeholder" v-model="field.value" :required="field.required">
+            </div>
             <button type="submit">Создать</button>
           </form>
         </div>
@@ -26,12 +24,12 @@
 export default {
   data() {
     return {
-      form: {
-        photo: '',
-        title: '',
-        hashtagsInput: '',
-        readingTime: '',
-        articleLink: ''
+      formFields: {
+        photo: { type: 'text', placeholder: 'Ссылка на фото', value: '', required: true },
+        title: { type: 'text', placeholder: 'Заголовок', value: '', required: true },
+        hashtagsInput: { type: 'text', placeholder: 'Хештеги (разделите запятыми)', value: '' },
+        readingTime: { type: 'text', placeholder: 'Время чтения', value: '' },
+        articleLink: { type: 'text', placeholder: 'Ссылка на статью', value: '', required: true }
       },
       showModal: false
     };
@@ -39,23 +37,19 @@ export default {
   methods: {
     submitArticle() {
       const newArticle = {
-        image: this.form.photo,
-        title: this.form.title,
-        hashtags: this.form.hashtagsInput.split(','), // разделение хэштегов по запятой
-        readingTime: this.form.readingTime,
-        articleLink: this.form.articleLink
+        image: this.formFields.photo.value,
+        title: this.formFields.title.value,
+        hashtags: this.formFields.hashtagsInput.value.split(','),
+        readingTime: this.formFields.readingTime.value,
+        articleLink: this.formFields.articleLink.value
       };
       this.$emit('articleCreated', newArticle);
       this.clearForm();
     },
     clearForm() {
-      this.form = {
-        photo: '',
-        title: '',
-        hashtagsInput: '',
-        readingTime: '',
-        articleLink: ''
-      };
+      for (let key in this.formFields) {
+        this.formFields[key].value = '';
+      }
       this.showModal = false;
     },
     closeModal() {
@@ -66,7 +60,6 @@ export default {
     setTimeout(this.closeModal, 30000);
   }
 };
-
 </script>
 
 <style lang="less">
