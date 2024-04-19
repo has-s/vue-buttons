@@ -9,11 +9,11 @@
         <div class="content">
           <p>Создание статьи</p>
           <form @submit.prevent="submitArticle">
-            <input type="text" id="photo" placeholder="Ссылка на фото" v-model="photo" required>
-            <input type="text" id="title" placeholder="Заголовок" v-model="title" required>
-            <input type="text" id="hashtags" placeholder="Хештеги (разделите запятыми)" v-model="hashtagsInput">
-            <input type="text" id="readingTime" placeholder="Время чтения" v-model="readingTime">
-            <input type="text" id="articleLink" placeholder="Ссылка на статью" v-model="articleLink" required>
+            <input type="text" placeholder="Ссылка на фото" v-model="form.photo" required>
+            <input type="text" placeholder="Заголовок" v-model="form.title" required>
+            <input type="text" placeholder="Хештеги (разделите запятыми)" v-model="form.hashtagsInput">
+            <input type="text" placeholder="Время чтения" v-model="form.readingTime">
+            <input type="text" placeholder="Ссылка на статью" v-model="form.articleLink" required>
             <button type="submit">Создать</button>
           </form>
         </div>
@@ -26,32 +26,36 @@
 export default {
   data() {
     return {
-      showModal: false,
-      photo: '',
-      title: '',
-      hashtagsInput: '',
-      readingTime: '',
-      articleLink: ''
+      form: {
+        photo: '',
+        title: '',
+        hashtagsInput: '',
+        readingTime: '',
+        articleLink: ''
+      },
+      showModal: false
     };
   },
   methods: {
     submitArticle() {
       const newArticle = {
-        image: this.photo,
-        title: this.title,
-        hashtags: this.hashtags,
-        readingTime: this.readingTime,
-        articleLink: this.articleLink
+        image: this.form.photo,
+        title: this.form.title,
+        hashtags: this.form.hashtagsInput.split(','), // разделение хэштегов по запятой
+        readingTime: this.form.readingTime,
+        articleLink: this.form.articleLink
       };
       this.$emit('articleCreated', newArticle);
       this.clearForm();
     },
     clearForm() {
-      this.photo = '';
-      this.title = '';
-      this.hashtagsInput = '';
-      this.readingTime = '';
-      this.articleLink = '';
+      this.form = {
+        photo: '',
+        title: '',
+        hashtagsInput: '',
+        readingTime: '',
+        articleLink: ''
+      };
       this.showModal = false;
     },
     closeModal() {
@@ -62,6 +66,7 @@ export default {
     setTimeout(this.closeModal, 30000);
   }
 };
+
 </script>
 
 <style lang="less">
@@ -131,13 +136,12 @@ p {
   float: right;
   font-size: 28px;
   font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  &:hover, &:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 .plus {
@@ -152,5 +156,6 @@ p {
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    cursor: pointer;
   }
 </style>
