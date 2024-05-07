@@ -27,29 +27,23 @@
     </header>
 
     <div class="main-info">
-      <h1>Meanwhile in...</h1>
-
-    <div class="tools">
-      <SearchBar @search="(queue) => handleSearch(queue)"></SearchBar>
-      <ArticleForm @articleCreated="(newArticle) => addArticleToCards(newArticle)" />
-    </div>
-
-      <div class="main-cards">
-        <MainCard
-          v-for="(card, index) in filteredCards"
-          :key="index"
-          :card="card"
-        ></MainCard>
+    <form class="form">
+      <div class="title">Welcome,<br><span>sign up to continue</span></div>
+      <input type="email" placeholder="Email" name="email" class="input">
+      <input type="password" placeholder="Password" name="password" class="input">
+      <div class="login-with">
+        <div class="button-log"></div>
+        <div class="button-log">
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class="button-log">
+          <i class="fab fa-facebook-f"></i></div>
       </div>
-        <ButtonTemplate :bordered = "true">Read more</ButtonTemplate>
-
-        <div class="slide-info">
-          <h1>Choose your guide...</h1>
-          <SlideMenu :cards="slides" :visible-cards="3" :scroll-step="1" />
-          <ButtonTemplate>Book now</ButtonTemplate>
+      <div class="center-content">
+        <button class="center-content">Let`s go →</button>
       </div>
-    </div>
-
+    </form>
+  </div>
     <footer>
       <nav class="navbar">
         <div class="container">
@@ -97,163 +91,19 @@
 
 <script>
   import MenuButton from "@/components/pages/Bobrysheva/components/MenuButton.vue";
-  import ButtonTemplate from "@/components/pages/Bobrysheva/components/ButtonTemplate.vue";
-  import MainCard from "@/components/pages/Bobrysheva/components/MainCard.vue";
-  import SearchBar from "@/components/pages/Bobrysheva/components/SearchBar.vue";
-  import SlideMenu from "@/components/pages/Bobrysheva/components/SlideMenu.vue";
-  import ArticleForm from "@/components/pages/Bobrysheva/components/ArticleForm.vue";
 
   export default {
     components: {
-      ButtonTemplate,
-      MenuButton,
-      SearchBar,
-      MainCard,
-      SlideMenu,
-      ArticleForm
+      MenuButton
     },
     data() {
         return {
         isLightTheme: true,
-        cards: [
-          {
-            id: 1,
-            image: 'https://i.imgur.com/8YZQEpy.png',
-            title: 'Finland',
-            hashtags: ['Scandinavia', 'Cold', 'Schengen'],
-            readingTime: '8 min'
-          },
-          {
-            id: 2,
-            image: 'https://i.pinimg.com/564x/d4/2e/a9/d42ea91267309d843b81d98f3f6a3855.jpg',
-            title: 'Japan',
-            hashtags: ['Asia', 'Culture', 'Strange'],
-            readingTime: '7 min'
-          },
-          {
-            id: 3,
-            image: 'https://i.pinimg.com/564x/e0/1b/c0/e01bc01b10f88818788af3fc657bef10.jpg',
-            title: 'Italy',
-            hashtags: ['Europe', 'Sea', 'Talkative'],
-            readingTime: '10 min'
-          },
-          {
-            id: 4,
-            image: 'https://i.imgur.com/BcHudDK.png',
-            title: 'USA',
-            hashtags: ['America', 'Food', 'Big'],
-            readingTime: '21 min'
-          },
-          {
-            id: 5,
-            image: 'https://i.pinimg.com/564x/d4/42/70/d442704c57aca880894916e506c19d9f.jpg',
-            title: 'German',
-            hashtags: ['Europe', 'Beer', 'Autobahn'],
-            readingTime: '15 min'
-          },
-          {
-            id: 6,
-            image: 'https://i.imgur.com/EsDvuSX.png',
-            title: 'North Korea',
-            hashtags: ['Asia', 'Sea', 'Help'],
-            readingTime: '2 min',
-            articleLink: 'https://www.youtube.com/watch?v=FBnAZnfNB6U'
-          }
-        ],
-        slides: [
-          {
-            image: 'https://i.pinimg.com/564x/9c/76/65/9c7665013145258e84917a49a053b9e8.jpg',
-            title: 'Neckguy',
-            rating: '3,4',
-            price: '50'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/fd/41/0e/fd410e30216ade0804260a1e72dace5d.jpg',
-            title: 'Historic man',
-            rating: '4,5',
-            price: '350'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/8b/7d/fb/8b7dfbad7cd2545da21004dbef28eb82.jpg',
-            title: 'Boris',
-            rating: '4,9',
-            price: '20'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/b6/dd/3a/b6dd3ae29098083b275af4621c8d3009.jpg',
-            title: 'Clerc Freestyler',
-            rating: '2,3',
-            price: '300'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/6b/be/31/6bbe3189c912f0274cd26b121536ec1a.jpg',
-            title: 'LEGO',
-            rating: '4,4',
-            price: '90'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/4d/d4/67/4dd4677ac4da8be4728a837339ef0dd6.jpg',
-            title: 'LikeMe',
-            rating: '1,0',
-            price: '150'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/79/3c/0c/793c0c45b6c5a758e8f7f222256dcd5d.jpg',
-            title: 'Todd Howard',
-            rating: '9,9',
-            price: '3999'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/a0/12/b6/a012b67784ca39a513eca1d6bf698f12.jpg',
-            title: 'Cone Patric',
-            rating: '4,7',
-            price: '50'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/f4/7b/bd/f47bbd5b7699b140bfbb5d661f921b61.jpg',
-            title: 'Banana Emo',
-            rating: '4,4',
-            price: '20'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/7a/2e/a0/7a2ea0d0da2b7edba723e40f3fdda3c4.jpg',
-            title: 'Carl',
-            rating: '3,6',
-            price: '2'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/92/b7/fa/92b7fa2cb2df5ac9e66f435e6a083f55.jpg',
-            title: 'Drog',
-            rating: '1,2',
-            price: '10'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/4e/25/b8/4e25b89aa82442e0a18afc9f74c99a09.jpg',
-            title: 'Boing',
-            rating: '2,1',
-            price: '10'
-          },
-        ],
-        searchQuery: ''
-      };
-    },
-    computed: {
-      filteredCards() {
-        return this.cards.filter(card =>
-          card.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          card.hashtags.some(hashtag => hashtag.toLowerCase().includes(this.searchQuery.toLowerCase()))
-        );
-      }
+        }
     },
     methods: {
       toggleTheme() {
         this.isLightTheme = !this.isLightTheme;
-      },
-      handleSearch(query) {
-        this.searchQuery = query;
-      },
-      addArticleToCards(newArticle) {
-        this.cards.push(newArticle);
       }
     }
   };
@@ -313,9 +163,61 @@
 }
 
 .main-info {
-  margin: 25px;
-  margin-top: 0;
+  min-height: 500px;
+  padding: 60px 40%;
+  box-sizing: border-box;
   text-align: center;
+  .form {
+    .title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      span {
+        font-size: 16px;
+        color: #999;
+      }
+    }
+    .input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .login-with {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .button-log {
+        width: 40px;
+        height: 40px;
+        background-color: #ccc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        .icon {
+          width: 20px;
+          height: 20px;
+          fill: #fff;
+        }
+      }
+    }
+    .button-confirm {
+      width: 100%;
+      height: 40px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
 }
 
 body h1 {
@@ -527,6 +429,8 @@ footer {
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
+  align-content: center;
   font-family: "Poppins-Regular", sans-serif;
   font-weight: lighter;
 }
@@ -607,5 +511,4 @@ footer {
   margin: 0 20px;
   font-family: "Poppins-ExLight", sans-serif;
 }
-
 </style>

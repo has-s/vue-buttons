@@ -27,26 +27,18 @@
     </header>
 
     <div class="main-info">
-      <h1>Meanwhile in...</h1>
-
-    <div class="tools">
-      <SearchBar @search="(queue) => handleSearch(queue)"></SearchBar>
-      <ArticleForm @articleCreated="(newArticle) => addArticleToCards(newArticle)" />
-    </div>
-
-      <div class="main-cards">
-        <MainCard
-          v-for="(card, index) in filteredCards"
-          :key="index"
-          :card="card"
-        ></MainCard>
-      </div>
-        <ButtonTemplate :bordered = "true">Read more</ButtonTemplate>
-
-        <div class="slide-info">
-          <h1>Choose your guide...</h1>
-          <SlideMenu :cards="slides" :visible-cards="3" :scroll-step="1" />
-          <ButtonTemplate>Book now</ButtonTemplate>
+      <h1>Article about...</h1>
+      <div class="article-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie sed magna non laoreet. Duis maximus in massa nec elementum. In quis mattis diam. Praesent lobortis tellus eget sem auctor accumsan. Sed id mauris nec orci placerat blandit eu a libero. Pellentesque mollis velit vel velit mattis interdum. Cras ac volutpat lorem, at pellentesque tortor. Mauris erat diam, aliquam id scelerisque eu, lobortis nec turpis. Etiam consequat risus nec mi ultrices molestie.
+Proin pellentesque dui non ligula fermentum blandit. Mauris lacus risus, efficitur sit amet semper eu, dapibus quis justo. Etiam rutrum augue a odio gravida, non imperdiet felis aliquet. Sed in placerat nunc. Nam dui mauris, condimentum vitae enim vitae, tempus congue erat. In a dignissim dolor. Quisque ac dolor ac urna vulputate tincidunt. Ut condimentum lectus tristique blandit auctor. Vivamus maximus consectetur lobortis. Cras fringilla nulla vitae ultrices sollicitudin. Fusce in tortor sapien. Suspendisse sed elit dapibus, eleifend sapien id, vestibulum magna. Sed viverra nisl vel bibendum sodales.
+Fusce in viverra tortor, fringilla egestas lectus. Etiam volutpat placerat orci, vestibulum vehicula urna sodales id. Suspendisse ac neque mauris. Nullam sit amet consectetur lectus, id cursus libero. Donec facilisis eu dui in interdum. Etiam erat nisl, porta et magna eget, euismod aliquet neque. Sed quis leo orci. Sed quis malesuada est. Aenean auctor molestie egestas. Duis vitae erat rutrum, commodo nisi vel, congue justo.
+Praesent vel ornare nulla, ut gravida nisi. Ut malesuada orci nec consequat tincidunt. Morbi urna velit, dignissim quis interdum ac, dapibus eu arcu. Curabitur fringilla aliquam nulla quis aliquam. Aenean sit amet faucibus arcu. Donec eleifend tellus erat, sed tempus augue tincidunt luctus. Aliquam erat volutpat. Donec molestie sapien eu justo tempus, ut convallis dolor sagittis. Praesent non finibus dui. Integer finibus ultrices diam, viverra blandit arcu tincidunt eu.
+Fusce dictum felis erat, ut dignissim metus vestibulum sit amet. Pellentesque imperdiet, tellus non finibus tempor, erat mi condimentum ante, vitae volutpat nibh tortor id tellus. Ut feugiat tempus enim, id efficitur erat posuere vel. Nam interdum ipsum et lectus maximus, in tempus purus eleifend. Ut suscipit dapibus iaculis. Sed placerat eget justo nec aliquam. In mi lorem, interdum id nisi quis, tempor suscipit ex.
+Maecenas ornare metus quis quam iaculis ultricies. Nulla facilisi. Suspendisse nec ultrices nisl, quis eleifend nisi. Praesent pretium ut tortor non laoreet. Phasellus tristique feugiat libero, sed molestie massa viverra non. Nulla nulla nisi, volutpat quis tortor vitae, ullamcorper luctus purus. Maecenas nec convallis nunc.
+Etiam hendrerit dignissim sapien id viverra. Nunc quis massa sit amet ligula varius consectetur non eu ante. Etiam at interdum purus. Nunc consequat eros diam, vel tincidunt diam laoreet vel. Vivamus a lacus et purus ullamcorper rhoncus eu at metus. Nullam tempor tincidunt scelerisque. Phasellus at pharetra diam. Quisque ac lacinia eros. Sed aliquam libero nec urna auctor, ut consectetur felis pharetra. Fusce semper nisi ut lectus sagittis, a sollicitudin est eleifend. Duis sed justo vehicula, viverra urna ultricies, dapibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut arcu sit amet dui rhoncus volutpat et ut neque.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed blandit quis odio eget pellentesque. Curabitur convallis vulputate lacus sit amet euismod. Suspendisse pulvinar vehicula risus, at maximus enim elementum in. Sed at ornare diam, eget pretium metus. Maecenas consectetur orci quis tempor tristique. Sed at iaculis metus. Etiam mollis viverra tincidunt. Mauris sed orci quam. Fusce tortor neque, cursus sit amet blandit et, porttitor sit amet nunc. Vivamus vel dignissim purus.
+Aliquam erat volutpat. Vestibulum varius lectus quis justo commodo, ac viverra dui maximus. Etiam malesuada, felis ullamcorper fermentum egestas, orci libero tempus elit, non interdum enim metus eu leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent ut nibh sed lorem porta viverra. Maecenas nisi justo, congue id ultrices id, ultricies ut erat. Phasellus quis tempus dui. Proin eu dolor luctus ex volutpat dignissim id sit amet tellus. Vivamus nec ex lorem. Ut suscipit purus a justo aliquet pellentesque. Proin ac ipsum sit amet justo gravida aliquet. Donec vestibulum mi vel eleifend scelerisque. Aenean in turpis condimentum, ultricies risus vulputate, eleifend nisi. Proin sagittis vitae quam et dignissim.
+Curabitur placerat scelerisque turpis, nec maximus magna consequat at. Sed sed dui turpis. Nam luctus tellus in lectus posuere iaculis eget eu est. Proin pharetra pharetra ipsum, a sagittis augue tristique nec. In hac habitasse platea dictumst. Nam quis semper libero. Sed tristique varius pharetra. Duis placerat mauris et orci ornare interdum. Nam lectus massa, convallis non porttitor vitae, aliquam nec nibh.
       </div>
     </div>
 
@@ -97,164 +89,21 @@
 
 <script>
   import MenuButton from "@/components/pages/Bobrysheva/components/MenuButton.vue";
-  import ButtonTemplate from "@/components/pages/Bobrysheva/components/ButtonTemplate.vue";
-  import MainCard from "@/components/pages/Bobrysheva/components/MainCard.vue";
-  import SearchBar from "@/components/pages/Bobrysheva/components/SearchBar.vue";
-  import SlideMenu from "@/components/pages/Bobrysheva/components/SlideMenu.vue";
-  import ArticleForm from "@/components/pages/Bobrysheva/components/ArticleForm.vue";
-
   export default {
     components: {
-      ButtonTemplate,
-      MenuButton,
-      SearchBar,
-      MainCard,
-      SlideMenu,
-      ArticleForm
+      MenuButton
     },
     data() {
         return {
         isLightTheme: true,
-        cards: [
-          {
-            id: 1,
-            image: 'https://i.imgur.com/8YZQEpy.png',
-            title: 'Finland',
-            hashtags: ['Scandinavia', 'Cold', 'Schengen'],
-            readingTime: '8 min'
-          },
-          {
-            id: 2,
-            image: 'https://i.pinimg.com/564x/d4/2e/a9/d42ea91267309d843b81d98f3f6a3855.jpg',
-            title: 'Japan',
-            hashtags: ['Asia', 'Culture', 'Strange'],
-            readingTime: '7 min'
-          },
-          {
-            id: 3,
-            image: 'https://i.pinimg.com/564x/e0/1b/c0/e01bc01b10f88818788af3fc657bef10.jpg',
-            title: 'Italy',
-            hashtags: ['Europe', 'Sea', 'Talkative'],
-            readingTime: '10 min'
-          },
-          {
-            id: 4,
-            image: 'https://i.imgur.com/BcHudDK.png',
-            title: 'USA',
-            hashtags: ['America', 'Food', 'Big'],
-            readingTime: '21 min'
-          },
-          {
-            id: 5,
-            image: 'https://i.pinimg.com/564x/d4/42/70/d442704c57aca880894916e506c19d9f.jpg',
-            title: 'German',
-            hashtags: ['Europe', 'Beer', 'Autobahn'],
-            readingTime: '15 min'
-          },
-          {
-            id: 6,
-            image: 'https://i.imgur.com/EsDvuSX.png',
-            title: 'North Korea',
-            hashtags: ['Asia', 'Sea', 'Help'],
-            readingTime: '2 min',
-            articleLink: 'https://www.youtube.com/watch?v=FBnAZnfNB6U'
-          }
-        ],
-        slides: [
-          {
-            image: 'https://i.pinimg.com/564x/9c/76/65/9c7665013145258e84917a49a053b9e8.jpg',
-            title: 'Neckguy',
-            rating: '3,4',
-            price: '50'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/fd/41/0e/fd410e30216ade0804260a1e72dace5d.jpg',
-            title: 'Historic man',
-            rating: '4,5',
-            price: '350'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/8b/7d/fb/8b7dfbad7cd2545da21004dbef28eb82.jpg',
-            title: 'Boris',
-            rating: '4,9',
-            price: '20'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/b6/dd/3a/b6dd3ae29098083b275af4621c8d3009.jpg',
-            title: 'Clerc Freestyler',
-            rating: '2,3',
-            price: '300'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/6b/be/31/6bbe3189c912f0274cd26b121536ec1a.jpg',
-            title: 'LEGO',
-            rating: '4,4',
-            price: '90'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/4d/d4/67/4dd4677ac4da8be4728a837339ef0dd6.jpg',
-            title: 'LikeMe',
-            rating: '1,0',
-            price: '150'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/79/3c/0c/793c0c45b6c5a758e8f7f222256dcd5d.jpg',
-            title: 'Todd Howard',
-            rating: '9,9',
-            price: '3999'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/a0/12/b6/a012b67784ca39a513eca1d6bf698f12.jpg',
-            title: 'Cone Patric',
-            rating: '4,7',
-            price: '50'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/f4/7b/bd/f47bbd5b7699b140bfbb5d661f921b61.jpg',
-            title: 'Banana Emo',
-            rating: '4,4',
-            price: '20'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/7a/2e/a0/7a2ea0d0da2b7edba723e40f3fdda3c4.jpg',
-            title: 'Carl',
-            rating: '3,6',
-            price: '2'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/92/b7/fa/92b7fa2cb2df5ac9e66f435e6a083f55.jpg',
-            title: 'Drog',
-            rating: '1,2',
-            price: '10'
-          },
-          {
-            image: 'https://i.pinimg.com/564x/4e/25/b8/4e25b89aa82442e0a18afc9f74c99a09.jpg',
-            title: 'Boing',
-            rating: '2,1',
-            price: '10'
-          },
-        ],
-        searchQuery: ''
       };
     },
     computed: {
-      filteredCards() {
-        return this.cards.filter(card =>
-          card.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          card.hashtags.some(hashtag => hashtag.toLowerCase().includes(this.searchQuery.toLowerCase()))
-        );
-      }
     },
     methods: {
       toggleTheme() {
         this.isLightTheme = !this.isLightTheme;
       },
-      handleSearch(query) {
-        this.searchQuery = query;
-      },
-      addArticleToCards(newArticle) {
-        this.cards.push(newArticle);
-      }
     }
   };
 </script>
@@ -606,6 +455,13 @@ footer {
   border-radius: 20px;
   margin: 0 20px;
   font-family: "Poppins-ExLight", sans-serif;
+}
+
+.article-content {
+  max-width: 85%;
+  margin: 20px auto 0;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 </style>

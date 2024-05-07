@@ -1,15 +1,15 @@
 <template>
   <div>
-    <button @click="() => toggleMenu()" class="menu-button">
+    <button @click="toggleMenu" class="menu-button">
       <i class="fas fa-bars icon"></i>
     </button>
     <transition name="fade">
-      <div v-if="isOpen" class="overlay" @click="() => closeMenu()"></div>
+      <div v-if="isOpen" class="overlay" @click="closeMenu"></div>
     </transition>
     <transition name="slide">
       <div v-if="isOpen" class="menu">
         <ul>
-          <li v-for="(item, index) in menuItems" :key="index" @click="() => handleMenuItemClick(item)">
+          <li v-for="(item, index) in menuItems" :key="index" @click="handleMenuItemClick(item)">
             {{ item }}
           </li>
         </ul>
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { RouteNames } from "@/router/routes";
+
 export default {
   data() {
     return {
@@ -37,7 +39,11 @@ export default {
       this.isOpen = false;
     },
     handleMenuItemClick(item) {
-      console.log('Clicked on', item);
+      if (item === 'Login') {
+        this.$router.push({ name: RouteNames.LOGIN });
+      } else {
+        console.log('Clicked on', item);
+      }
     }
   }
 };

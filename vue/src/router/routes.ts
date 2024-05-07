@@ -1,4 +1,6 @@
 export enum RouteNames {
-  BOBRBLOG = "BOBRBLOG",
+  BLOG = "BLOG",
+  ARTICLE = "ARTICLE",
+  LOGIN = "LOGIN",
   HOME = "HOME"
 }

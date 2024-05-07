@@ -1,33 +1,35 @@
 <template>
   <div class="cards-container">
-  <div class="main-card">
-    <img :src="card.image" alt="Card Image" class="main-image">
-    <div class="card-content">
-      <p class="card-title">{{ card.title }}</p>
-      <div class="hashtags-wrapper">
-        <span v-for="(hashtag, index) in card.hashtags" :key="index" class="card-hashtag">{{ hashtag }}</span>
+    <div class="main-card">
+      <img :src="card.image" alt="Card Image" class="main-image">
+      <div class="card-content">
+        <p class="card-title">{{ card.title }}</p>
+        <div class="hashtags-wrapper">
+          <span v-for="(hashtag, index) in card.hashtags" :key="index" class="card-hashtag">{{ hashtag }}</span>
+        </div>
+        <p class="card-reading-time"><i class="far fa-clock"></i> {{ card.readingTime }}</p>
       </div>
-      <p class="card-reading-time"><i class="far fa-clock"></i> {{ card.readingTime }}</p>
+      <div class="card-arrow" @click="() => redirectToArticle()"><i class="fa-solid fa-arrow-right"></i></div>
     </div>
-    <div class="card-arrow" @click="() => redirectToArticle(card.articleLink)"><i class="fa-solid fa-arrow-right"></i></div>
-  </div>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      card: {
-        type: Object,
-        required: true
-      }
-    },
-    methods: {
-    redirectToArticle(articleLink) {
-      window.open(articleLink, '_blank');
+import { RouteNames } from "@/router/routes";
+
+export default {
+  props: {
+    card: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    redirectToArticle() {
+      this.$router.push({ name: RouteNames.ARTICLE, params: { id: this.card.id } });
     }
   }
-  };
+};
 </script>
 
 <style>
