@@ -109,7 +109,7 @@
   };
 </script>
 
-<style lang="less">
+<style scoped lang="less">
 
 @font-face {
   font-family: 'Poppins-Medium';
