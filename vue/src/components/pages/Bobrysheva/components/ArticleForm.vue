@@ -87,11 +87,6 @@ export default {
   text-align: center;
   background-color: #ffffff;
   border-radius: 25px;
-
-p {
-  font-family: "Poppins-SeBold", sans-serif;
-  font-size: 32px;
-}
 }
 
 .content input {
