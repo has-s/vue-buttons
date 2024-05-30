@@ -9,14 +9,12 @@
         </div>
         <p class="card-reading-time"><i class="far fa-clock"></i> {{ card.readingTime }}</p>
       </div>
-      <div class="card-arrow" @click="() => redirectToArticle()"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="card-arrow" @click="redirectToArticle"><i class="fa-solid fa-arrow-right"></i></div>
     </div>
   </div>
 </template>
 
 <script>
-import { RouteNames } from "@/router/routes";
-
 export default {
   props: {
     card: {
@@ -26,7 +24,7 @@ export default {
   },
   methods: {
     redirectToArticle() {
-      this.$router.push({ name: RouteNames.ARTICLE, params: { id: this.card.id } });
+      window.location.href = this.card.articleLink;
     }
   }
 };
