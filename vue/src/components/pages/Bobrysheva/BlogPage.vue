@@ -17,7 +17,7 @@
         <div class="right-menu">
         <i class="fa-regular fa-moon"></i>
         <label class="switch">
-          <input type="checkbox" @change="() => toggleTheme()" :checked="isLightTheme">
+          <input type="checkbox" @change="() => toggleTheme()" :checked = "isLightTheme">
           <span class="slider round"></span>
         </label>
         <i class="fa-regular fa-sun"></i>
